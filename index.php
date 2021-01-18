@@ -1,33 +1,21 @@
-<?php
+<!DOCTYPE html>
+<html lang="pt-br">
 
-$categoria = [];
-$categoria[] = 'Infantil';
-$categoria[] = 'Juvenil';
-$categoria[] = 'Adulto';
+<?php session_start(); ?>
 
-$nome = 'Eduardo';
-$idade = 15;
-if($idade >= 6 && $idade <= 12)
-{
-    for($i=0; $i < count($categoria) ; $i++) 
-    { 
-        if($categoria[$i] == 'Infantil')
-            echo "O nadador " . $nome . " compete na categoria Infantil";
-    }
-} 
-else if($idade >= 13 && $idade <= 18)
-{
-    for($i=0; $i < count($categoria) ; $i++)
-    {
-        if($categoria[$i] == 'Juvenil')
-            echo "O nadador " . $nome . " compete na categoria Juvenil";
-    }
-} 
-else
-{
-    for($i=0;$i < count($categoria) ; $i++)
-    {
-        if($categoria[$i] == 'Adulto')
-            echo "O nadador " . $nome . " compete na categoria Adulto";
-    }
-}
+    <head>
+        <meta charset="UTF-8">
+        <title>Formulário de inscriçaão</title>
+    </head>
+
+    <body>
+        <!-- method: apenas metodos get e post
+        action = caminho-->
+        <h1>Formulário para inscriçaão de competidores</h1>
+        <form action="script.php" method="post">
+            <p>Nome: <input type="text" name="nome" ></p>
+            <p>Idade: <input type="text" name="idade"></p>
+            <input type="submit" value="Enviar dados">
+        </form>
+    </body>
+</html>
