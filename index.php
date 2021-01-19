@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<?php session_start(); ?>
-
     <head>
         <meta charset="UTF-8">
         <title>Formulário de inscriçaão</title>
@@ -16,6 +14,14 @@
             <p>Nome: <input type="text" name="nome" ></p>
             <p>Idade: <input type="text" name="idade"></p>
             <input type="submit" value="Enviar dados">
+            <?php 
+                session_start();
+                if(!empty($_SESSION['msg'])){
+                    echo $_SESSION['msg']; 
+                    unset($_SESSION['msg']);
+                    session_destroy();
+                }
+            ?>
         </form>
     </body>
 </html>

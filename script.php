@@ -19,7 +19,8 @@ $idade = $_POST['idade'];
 // se for vazio
 if(empty($nome))
 {
-    echo "O nome não pode ser vazio";
+    $_SESSION['msg'] = "<p style='color:red'>O nome não pode ser vazio.</p>";
+    header("location: index.php");
     // não executa o restante
     return;
 }
@@ -27,13 +28,15 @@ if(empty($nome))
 // se conter menos q 3 caracteres
 if(strlen($nome) < 3)
 {
-    echo "O nome deve conter mais de 3 caracteres";
+    $_SESSION['msg'] = "<p style='color:red'>O nome deve conter mais de 3 caracteres.</p>";
+    header("location: index.php");
     return;
 }
 
 if(strlen($nome) > 40)
 {
-    echo "O nome e muito extenso";
+    $_SESSION['msg'] = "<p style='color:red'>O nome é muito extenso.</p>";
+    header("location: index.php");
     return;
 }
 
@@ -41,7 +44,8 @@ if(strlen($nome) > 40)
 // se é numerico ou não
 if(!is_numeric($idade))
 {
-    echo "Informe um numero para idade";
+    $_SESSION['msg'] = "<p style='color:red'>Informe um numero para idade.<p/P";
+    header("location: index.php");
     return;
 }
 
@@ -50,8 +54,9 @@ if($idade >= 6 && $idade <= 12)
     for($i=0; $i < count($categoria) ; $i++) 
     { 
         if($categoria[$i] == 'Infantil')
-            echo "O nadador " . $nome . " compete na categoria Infantil";
-            //header('location: index.php');
+            $_SESSION['msg'] =  "<p style='color:green'>O nadador " . $nome . " compete na categoria Infantil</p>";
+            header("location: index.php");
+            return;
     }
 } 
 else if($idade >= 13 && $idade <= 18)
@@ -59,8 +64,8 @@ else if($idade >= 13 && $idade <= 18)
     for($i=0; $i < count($categoria) ; $i++)
     {
         if($categoria[$i] == 'Juvenil')
-            echo "O nadador " . $nome . " compete na categoria Juvenil";
-            //header('location: index.php');
+            $_SESSION['msg'] = "<p style='color:green'>O nadador " . $nome . " compete na categoria Juvenil</p>";
+            header('location: index.php');
     }
 } 
 else
@@ -68,7 +73,7 @@ else
     for($i=0;$i < count($categoria) ; $i++)
     {
         if($categoria[$i] == 'Adulto')
-            echo "O nadador " . $nome . " compete na categoria Adulto";
-            //header('location: index.php');
+            $_SESSION['msg'] = "<p style='color:green'>O nadador " . $nome . " compete na categoria Adulto</p>";
+            header('location: index.php');
     }
 }
