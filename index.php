@@ -1,3 +1,9 @@
+<?php
+    # gera headers e precisa ser iniciado antes para processar tudo
+    # executa e ecoa as coisas pro navegador
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,13 +20,22 @@
             <p>Nome: <input type="text" name="nome" ></p>
             <p>Idade: <input type="text" name="idade"></p>
             <input type="submit" value="Enviar dados">
-            <?php 
-                session_start();
-                if(!empty($_SESSION['msg'])){
-                    echo $_SESSION['msg']; 
-                    unset($_SESSION['msg']);
+            <?php
+                $mensagemDeSucesso = isset($_SESSION['msg']) ? $_SESSION['msg'] : '';
+                if(!empty($mensagemDeSucesso))
+                {
+                    echo $mensagemDeSucesso;
+                    unset($mensagemDeSucesso);
                     session_destroy();
                 }
+                $mensagemDeErro = isset($_SESSION['msg-erro']) ? $_SESSION['msg-erro'] : '';
+                if(!empty($mensagemDeErro))
+                {
+                    echo $mensagemDeErro;
+                    unset($mensagemDeErro);
+                    session_destroy();
+                }
+
             ?>
         </form>
     </body>
