@@ -26,15 +26,11 @@
                 if(!empty($mensagemDeSucesso))
                 {
                     echo $mensagemDeSucesso;
-                    unset($mensagemDeSucesso);
-                    session_destroy();
                 }
                 $mensagemDeErro = isset($_SESSION['msg-erro']) ? $_SESSION['msg-erro'] : '';
                 if(!empty($mensagemDeErro))
                 {
                     echo $mensagemDeErro;
-                    unset($mensagemDeErro);
-                    session_destroy();
                 }
 
             ?>

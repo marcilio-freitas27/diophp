@@ -1,7 +1,8 @@
 <?php
 
 session_start();
-require('servicos/servicoValidacao.php');
+include 'servicos/servicoValidacao.php';
+include 'servicos/servicoMensagemSessao.php';
 
 $categoria = [];
 $categoria[] = 'Infantil';
