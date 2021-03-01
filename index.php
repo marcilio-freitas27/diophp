@@ -1,7 +1,7 @@
 <?php
     # gera headers e precisa ser iniciado antes para processar tudo
     # executa e ecoa as coisas pro navegador
-    include 'servicos/servicoMensagemSessao.php';
+    include "servicos/servicoMensagemSessao.php";
 ?>
 
 <!DOCTYPE html>
@@ -22,13 +22,13 @@
             <input type="submit" value="Enviar dados">
             <?php
                 //operadores ternários = ? e : (if e else)
-                $mensagemDeSucesso = isset($_SESSION['msg']) ? $_SESSION['msg'] : '';
+                $mensagemDeSucesso = obterMensagemSucesso();
                 if(!empty($mensagemDeSucesso))
                 {
                     echo $mensagemDeSucesso;
                     removerMensagemSucesso();
                 }
-                $mensagemDeErro = isset($_SESSION['msg-erro']) ? $_SESSION['msg-erro'] : '';
+                $mensagemDeErro = obterMensagemErro();
                 if(!empty($mensagemDeErro))
                 {
                     echo $mensagemDeErro;

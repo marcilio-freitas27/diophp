@@ -25,6 +25,17 @@ function obterMensagemErro() : ?string
     return null;
 }
 
+function obterMensagemSucesso() : ?string
+#devolve uma string
+{
+    if(isset($_SESSION['msg']))
+    
+        return $_SESSION['msg'];
+    
+    # ? coringa= retorna string ou null
+    return null;
+}
+
 function removerMensagemSucesso() : void
 {
     if(isset($_SESSION['msg']))
