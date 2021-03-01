@@ -1,7 +1,7 @@
 <?php
     # gera headers e precisa ser iniciado antes para processar tudo
     # executa e ecoa as coisas pro navegador
-    session_start();
+    include 'servicos/servicoMensagemSessao.php';
 ?>
 
 <!DOCTYPE html>
@@ -26,11 +26,13 @@
                 if(!empty($mensagemDeSucesso))
                 {
                     echo $mensagemDeSucesso;
+                    removerMensagemSucesso();
                 }
                 $mensagemDeErro = isset($_SESSION['msg-erro']) ? $_SESSION['msg-erro'] : '';
                 if(!empty($mensagemDeErro))
                 {
                     echo $mensagemDeErro;
+                    removerMensagemErro();
                 }
 
             ?>

@@ -10,7 +10,7 @@ function validaNOme(string $nome) : bool
     // se for vazio
     if(empty($nome))
     {
-        setaMensagemErro("<p style='color:red'>O nome não pode ser vazio.</p>");
+        setarMensagemErro("<p style='color:red'>O nome não pode ser vazio.</p>");
         // não executa o restante
         return false;
     }
@@ -18,14 +18,14 @@ function validaNOme(string $nome) : bool
     // se conter menos q 3 caracteres
     else if(strlen($nome) < 3)
     {
-        setaMensagemErro("<p style='color:red'>O nome deve conter mais de 3 caracteres.</p>");
+        setarMensagemErro("<p style='color:red'>O nome deve conter mais de 3 caracteres.</p>");
         return false;
     }
 
     // maior que 40
     else if(strlen($nome) > 40)
     {
-        setaMensagemErro("<p style='color:red'>O nome é muito extenso.</p>");
+        setarMensagemErro("<p style='color:red'>O nome é muito extenso.</p>");
         return false;
     }
     return true;
@@ -39,7 +39,7 @@ function validaIdade(string $idade) : bool
     // se é numerico ou não
     if(!is_numeric($idade))
     {
-        setaMensagemErro("<p style='color:red'>Informe um numero para idade.<p/P");
+        setarMensagemErro("<p style='color:red'>Informe um numero para idade.<p/P");
         return false;
     }
     return true;
